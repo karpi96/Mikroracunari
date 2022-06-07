@@ -10,15 +10,16 @@ import time
 import Adafruit_DHT
 import RPi.GPIO as GPIO
 
-grejac = 14
-ventilator = 15
-
+grejac = 14         #pin leda koji simbolizuje grejaca
+ventilator = 15     #pin leda koji simbolizuje ventilatora
+sensorPin = 17
 GPIO.setmode(GPIO.BCM)
 
 GPIO.setwarnings(False)
 GPIO.setup(grejac,GPIO.OUT)
 GPIO.setup(ventilator,GPIO.OUT)
-humidity, temperature = Adafruit_DHT.read_retry(Adafruit_DHT.DHT11,17)
+#iscitavanje vlaznosti i temperature sa DHT11 senzora 
+humidity, temperature = Adafruit_DHT.read_retry(Adafruit_DHT.DHT11, sensorPin) 
 display = drivers.Lcd()
 
 givenTemp = 25.0
@@ -28,24 +29,28 @@ places = "    "
 try:
     while True:
         # Remember that your sentences can only be 16 characters long!
-        humidity, temperature = Adafruit_DHT.read_retry(Adafruit_DHT.DHT11,17)
-        time.sleep(2)
+        humidity, temperature = Adafruit_DHT.read_retry(Adafruit_DHT.DHT11, sensorPin)
         display.lcd_clear()
         
-        display.lcd_display_string(str(temperature) + " C" + places + str(givenTemp) + " C", 1)  # Write line of text to first line of display   # Refresh the first line of display with a different message
-        display.lcd_display_string("Vlaga: " + str(humidity) + "%", 2)  # Write line of text to first line of display   # Refresh the first line of display with a different message
+        #ispisujemo string u prvom redu zato je posle zareza 1
+        #moramo da prebacimo sve brojeve u string to znaci str()
+        display.lcd_display_string(str(temperature) + " C" + places + str(givenTemp) + " C", 1) 
+        display.lcd_display_string("Vlaga: " + str(humidity) + "%", 2)  
         
+        #ako je temperature veca od zadate ukljuci ventilator
         if temperature > givenTemp:
             GPIO.output(ventilator, GPIO.HIGH)
             GPIO.output(grejac, GPIO.LOW)
         
+        #ako je temperature manja od zadate ukljuci grejac
         if temperature < givenTemp:
             GPIO.output(ventilator, GPIO.LOW)
             GPIO.output(grejac, GPIO.HIGH)
-            
 
-        # Give time for the message to be read
+        time.sleep(2)    
+
 except KeyboardInterrupt:
-    #If there is a KeyboardInterrupt (when you press ctrl+c), exit the program and cleanup
+    #kad pritisnete ctr+c onda clearuje display i GPIO
     print("Cleaning up!")
     display.lcd_clear()
+    GPIO.cleanup()
