@@ -1,0 +1,6 @@
+taster1 = 4
+taster2 = 15
+
+led1 = 18
+led2 = 23
+led3 = 24
