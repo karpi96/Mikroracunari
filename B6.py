@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO
 import time
 
-buttonPin1 = 4
+buttonPin1 = 17
 buttonPin2 = 15
 ledPin1 = 18
 ledPin2 = 23

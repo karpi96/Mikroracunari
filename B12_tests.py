@@ -16,7 +16,7 @@ click = 0
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
-GPIO.setup(buttonPin,GPIO.IN, pull_up_down = GPIO.PUD_UP)
+GPIO.setup(buttonPin,GPIO.IN)
 
 def button_callback(pin1):
     display.lcd_clear()

@@ -25,18 +25,10 @@ display = drivers.Lcd()
 givenTemp = 25.0
 places = "    "
 
-# Main body of code
-try:
-    while True:
-        # Remember that your sentences can only be 16 characters long!
-        humidity, temperature = Adafruit_DHT.read_retry(Adafruit_DHT.DHT11,dht11)
-        display.lcd_clear()
-        display.lcd_display_string(str(temperature) + " , " + str(humidity) , 1)  # Write line of text to first line of display   #
-        time.sleep(2)
-
-
-        # Give time for the message to be read
-except KeyboardInterrupt:
-    #If there is a KeyboardInterrupt (when you press ctrl+c), exit the program and cleanup
-    print("Cleaning up!")
+while True:
+    # Remember that your sentences can only be 16 characters long!
+    humidity, temperature = Adafruit_DHT.read_retry(Adafruit_DHT.DHT11,dht11)
     display.lcd_clear()
+    display.lcd_display_string(str(temperature) + " , " + str(humidity) , 1)  # Write line of text to first line of display   #
+    time.sleep(2)
+
