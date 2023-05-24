@@ -18,7 +18,7 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 GPIO.setup(buttonPin,GPIO.IN)
 
-def button_callback(pin1):
+def button_callback(buttonPin):
     display.lcd_clear()
     display.lcd_display_string("Zdravo", 1)  # Write line of text to first line of display   # Refresh the first
     print("button pressed")

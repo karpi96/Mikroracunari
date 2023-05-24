@@ -18,7 +18,7 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 GPIO.setup(buttonPin,GPIO.IN)
 
-def button_callback(pin1):
+def button_callback(buttonPin):
     global click
     print("buttonPressed")
     click += 1
