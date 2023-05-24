@@ -13,24 +13,27 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 GPIO.setup(buttonPin1,GPIO.IN)
 GPIO.setup(buttonPin2,GPIO.IN)
+GPIO.setup(buttonPin3,GPIO.IN)
+GPIO.setup(buttonPin4,GPIO.IN)
+
 
 display = drivers.Lcd()
 
 def button1_callback(buttonPin1):
     display.lcd_clear()
-    display.lcd_display_string("1")
+    display.lcd_display_string("1",1)
     
 def button2_callback(buttonPin2):
     display.lcd_clear()
-    display.lcd_display_string("2")
+    display.lcd_display_string("2",1)
     
 def button3_callback(buttonPin3):
     display.lcd_clear()
-    display.lcd_display_string("3")
+    display.lcd_display_string("3",1)
     
 def button4_callback(buttonPin4):
     display.lcd_clear()
-    display.lcd_display_string("4")
+    display.lcd_display_string("4",1)
 
 GPIO.add_event_detect(buttonPin1, GPIO.RISING, callback = button1_callback, bouncetime = 700)
 GPIO.add_event_detect(buttonPin2, GPIO.RISING, callback = button2_callback, bouncetime = 700)

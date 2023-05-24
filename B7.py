@@ -12,6 +12,8 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 GPIO.setup(buttonPin1,GPIO.IN)
 GPIO.setup(buttonPin2,GPIO.IN)
+GPIO.setup(buttonPin3,GPIO.IN)
+GPIO.setup(buttonPin4,GPIO.IN)
 
 display = drivers.Lcd()
 
@@ -25,9 +27,9 @@ def check():
     if len(CODE) == len(inputCode):
         display.lcd_clear()
         if CODE == inputCode:
-            display.lcd_display_string("OK")
+            display.lcd_display_string("OK",1)
         else:
-            display.lcd_display_string("STOP")
+            display.lcd_display_string("STOP",1)
         inputCode = []
 
 def button1_callback(buttonPin1):
