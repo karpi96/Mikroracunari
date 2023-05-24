@@ -20,6 +20,7 @@ GPIO.setup(buttonPin,GPIO.IN)
 
 def button_callback(pin1):
     global click
+    print("buttonPressed")
     click += 1
     display.lcd_clear()
     number = random.randint(1,6)

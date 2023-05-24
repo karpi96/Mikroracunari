@@ -35,6 +35,7 @@ def button1_callback(buttonPin1):
     pwm1.ChangeDutyCycle(dc)
     pwm2.ChangeDutyCycle(dc)
     pwm3.ChangeDutyCycle(dc)
+    print(1)
 
     
 def button2_callback(buttonPin2):
@@ -46,6 +47,7 @@ def button2_callback(buttonPin2):
     pwm1.ChangeDutyCycle(dc)
     pwm2.ChangeDutyCycle(dc)
     pwm3.ChangeDutyCycle(dc)
+    print(2)
 
 GPIO.add_event_detect(buttonPin1, GPIO.RISING, callback = button1_callback, bouncetime = 700)
 GPIO.add_event_detect(buttonPin2, GPIO.RISING, callback = button2_callback, bouncetime = 700)

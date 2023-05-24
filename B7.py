@@ -1,4 +1,4 @@
-import RPi.GPIO as GPIO
+ import RPi.GPIO as GPIO
 import time
 import drivers
 
@@ -34,18 +34,22 @@ def check():
 
 def button1_callback(buttonPin1):
     inputCode.append(1)
+    print(1)
     check()
     
 def button2_callback(buttonPin2):
     inputCode.append(2)
+    print(2)
     check()
     
 def button3_callback(buttonPin3):
     inputCode.append(3)
+    print(3)
     check()
     
 def button4_callback(buttonPin4):
     inputCode.append(4)
+    print(4)
     check()
 
 GPIO.add_event_detect(buttonPin1, GPIO.RISING, callback = button1_callback, bouncetime = 700)

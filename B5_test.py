@@ -25,6 +25,9 @@ display = drivers.Lcd()
 givenTemp = 25.0
 places = "    "
 
+GPIO.output(grejac, GPIO.HIGH)
+GPIO.output(ventilator, GPIO.HIGH)
+
 while True:
     # Remember that your sentences can only be 16 characters long!
     humidity, temperature = Adafruit_DHT.read_retry(Adafruit_DHT.DHT11,dht11)

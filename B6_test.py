@@ -23,12 +23,14 @@ def button1_callback(buttonPin1):
     GPIO.output(ledPin1, GPIO.HIGH)
     GPIO.output(ledPin2, GPIO.HIGH)
     GPIO.output(ledPin3, GPIO.HIGH)
+    print(1)
 
     
 def button2_callback(buttonPin2):
     GPIO.output(ledPin1, GPIO.LOW)
     GPIO.output(ledPin2, GPIO.LOW)
     GPIO.output(ledPin3, GPIO.LOW)
+    print(2)
 
 GPIO.add_event_detect(buttonPin1, GPIO.RISING, callback = button1_callback, bouncetime = 700)
 GPIO.add_event_detect(buttonPin2, GPIO.RISING, callback = button2_callback, bouncetime = 700)

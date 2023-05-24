@@ -21,7 +21,7 @@ GPIO.setup(buttonPin,GPIO.IN)
 def button_callback(pin1):
     display.lcd_clear()
     display.lcd_display_string("Zdravo", 1)  # Write line of text to first line of display   # Refresh the first
-
+    print("button pressed")
 
 # Load the driver and set it to "display"
 # If you use something from the driver library use the "display." prefix first
