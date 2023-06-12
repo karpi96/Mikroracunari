@@ -4,9 +4,9 @@ import drivers
 
 
 buttonPin1 = 17
-buttonPin2 = 15
-buttonPin3 =  26    
-buttonPin4 =  27
+buttonPin2 = 27
+buttonPin3 =  22    
+buttonPin4 =  10
 
 
 GPIO.setmode(GPIO.BCM)
